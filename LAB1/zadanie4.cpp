@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream>   // oba rozwiązania poprawne; to dotyczace papugi juz wczesniej widzialam...
 #include <string>
 #include <vector>
 
