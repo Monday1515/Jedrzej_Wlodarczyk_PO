@@ -6,7 +6,7 @@ using namespace std;
 
 class Car{
     public:
-    string marka;
+    string marka; // atrybuty zwyczajowo przechowuje sie w polach o dostepie private/protected
     string model;
     int rokProdukcji;
 
@@ -21,7 +21,7 @@ class Car{
         rokProdukcji = 2020;
     }
     ~Car(){
-        cout << "Destruktor wywołany dla " << marka << " " << model << endl;
+        cout << "Destruktor wywołany dla " << marka << " " << model << endl; // informacja o likwidacji obiektu?
     }
 };
 
