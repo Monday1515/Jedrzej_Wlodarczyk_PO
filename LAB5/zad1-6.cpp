@@ -59,4 +59,7 @@ int main(){
 
     delete samochod;
     delete rower;
-}
+} 
+
+// program jest poprawny, ale nie ilustruje wszystkich problemów zawartych w zadaniach 1-6
+// w szczególności: jak zmiana trybu dziedziczenia wpływa na możliwości wykonywania poszczególnych operacji?
