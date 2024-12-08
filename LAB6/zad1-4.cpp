@@ -1,4 +1,4 @@
-#include <iostream>
+#include <iostream>  // rozwiazanie poprawne
 #include <vector>
 #include <memory>
 
@@ -13,7 +13,7 @@ class Pojazd{
             cout << "Pojazd sie zatrzymuje" << endl;
         }
 
-        virtual ~Pojazd(){}
+        virtual ~Pojazd(){} // jakies ciało?
 };
 
 class Samochod : public Pojazd{
@@ -23,7 +23,7 @@ class Samochod : public Pojazd{
         }
         void zatrzymaj() override{
             cout << "Samochod sie zatrzymuje" << endl;
-        }
+        } // szkoda, że nie zdefiniował Pan destruktorów w klasach pochodnych
 };
 
 class Rower : public Pojazd{
@@ -52,7 +52,7 @@ int main(){
     Motocykl* motocykl = new Motocykl();
 
     vector<std::unique_ptr<Pojazd>> pojazdy;
-    pojazdy.push_back(make_unique<Samochod>());
+    pojazdy.push_back(make_unique<Samochod>()); // obiekt Pojazd tez mozna utworzyc
     pojazdy.push_back(make_unique<Rower>());
     pojazdy.push_back(make_unique<Motocykl>());
 
