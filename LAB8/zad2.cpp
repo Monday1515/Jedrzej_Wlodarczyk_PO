@@ -34,6 +34,9 @@ class Bike : public Vehicle {
 class VehicleFactory {
     public:
         static unique_ptr<Vehicle> newVehicle(const string& type, const string& model){
+            // ta metoda (newVehicle) powinna być zdefiniowana jako czysto wirtualna w klasie VehicleFactory,
+            // a następnie przesłonięta w klasach pochodnych - tu ich brakuje
+            // to uchroniłoby nas przed naruszaniem zasady open/closed 
             if(type == "Car"){
                 cout << "Utworzylem auto" << endl;
                 return make_unique<Car>(model);
