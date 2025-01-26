@@ -1,4 +1,4 @@
-import java.util.Scanner;
+import java.util.Scanner; // poprawnie
 
 interface Discount {
    double calculate(double price); 
