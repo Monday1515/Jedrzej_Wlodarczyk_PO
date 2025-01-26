@@ -1,4 +1,4 @@
-interface AreaCounter{
+interface AreaCounter{ 
     double getArea();
 }
 
@@ -22,10 +22,10 @@ class Rectangle implements AreaCounter{
 }
 
 class Square extends Rectangle {
-    private double height;    
+    private double height;    // po co powielać to pole?
 
     public void setHeight(double height) {
-       this.height = height;
+       this.height = height;   // i te metode?
     }
 
     @Override
