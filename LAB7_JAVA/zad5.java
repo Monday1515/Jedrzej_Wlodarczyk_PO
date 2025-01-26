@@ -1,4 +1,4 @@
-interface MessageService {
+interface MessageService {   // poprawnie
    void sendMessage(String message);
 }
 
