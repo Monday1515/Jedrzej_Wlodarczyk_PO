@@ -1,0 +1,606 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Accordion?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ChoiceBox?>
+<?import javafx.scene.control.DatePicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.ListView?>
+<?import javafx.scene.control.ProgressBar?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="1080.0" prefWidth="1920.0" style="-fx-background-color: #8ED496;" xmlns="http://javafx.com/javafx/21" xmlns:fx="http://javafx.com/fxml/1" fx:controller="com.example.yourdiet.MainController">
+   <children>
+      <AnchorPane fx:id="mainAnchor" layoutX="126.0" layoutY="56.0" prefHeight="955.0" prefWidth="1699.0" styleClass="form-container" stylesheets="@style.css">
+         <children>
+            <Accordion layoutX="388.0" layoutY="135.0" />
+            <Button layoutX="683.0" layoutY="380.0" mnemonicParsing="false" onMouseClicked="#openCalendar" prefHeight="67.0" prefWidth="362.0" stylesheets="@style2.css" text="KALENDARZ" />
+            <Button fx:id="recipeDatabase" layoutX="681.0" layoutY="558.0" mnemonicParsing="false" onMouseClicked="#displayRecipes" prefHeight="67.0" prefWidth="362.0" stylesheets="@style2.css" text="BAZA PRZEPISÓW" />
+            <Button fx:id="bmiCalculator" layoutX="679.0" layoutY="732.0" mnemonicParsing="false" onMouseClicked="#displayBmi" prefHeight="67.0" prefWidth="362.0" stylesheets="@style2.css" text="KALKULATOR BMI" />
+            <Text fx:id="name" layoutX="754.0" layoutY="93.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="196.0">
+               <font>
+                  <Font name="System Bold" size="27.0" />
+               </font>
+            </Text>
+            <Button fx:id="logOutBtn" layoutX="1522.0" layoutY="37.0" mnemonicParsing="false" onMouseClicked="#displayUserDetails" prefHeight="89.0" prefWidth="109.0" style="-fx-background-color: white;" />
+            <ImageView fitHeight="63.0" fitWidth="51.0" layoutX="1460.0" layoutY="56.0" onMouseClicked="#displayUserDetails" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@user_icon.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="logOutIV" fitHeight="52.0" fitWidth="52.0" layoutX="1567.0" layoutY="56.0" onMouseClicked="#logOut" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@logout.png" />
+               </image>
+            </ImageView>
+            <AnchorPane fx:id="calendarOptions" layoutX="-27.0" prefHeight="971.0" prefWidth="1726.0" style="-fx-background-color: white;" visible="false">
+               <children>
+                  <ListView fx:id="snacksLV" layoutX="116.0" layoutY="591.0" prefHeight="364.0" prefWidth="352.0" />
+                  <ListView fx:id="breakfastLV" layoutX="111.0" layoutY="159.0" prefHeight="364.0" prefWidth="352.0" />
+                  <ListView fx:id="dinnerLV" layoutX="651.0" layoutY="157.0" prefHeight="364.0" prefWidth="352.0" />
+                  <ListView fx:id="waterLV" layoutX="644.0" layoutY="592.0" prefHeight="364.0" prefWidth="352.0" />
+                  <ListView fx:id="supperLV" layoutX="1156.0" layoutY="158.0" prefHeight="364.0" prefWidth="352.0" />
+                  <Text layoutX="215.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="ŚNIADANIE">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="785.0" layoutY="143.0" strokeType="OUTSIDE" strokeWidth="0.0" text="OBIAD">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="1273.0" layoutY="144.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KOLACJA">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="220.0" layoutY="568.0" strokeType="OUTSIDE" strokeWidth="0.0" text="PRZEKĄSKI">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Text>
+                  <Text layoutX="785.0" layoutY="572.0" strokeType="OUTSIDE" strokeWidth="0.0" text="WODA">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Text>
+                  <ProgressBar fx:id="caloriePb" layoutX="1216.0" layoutY="651.0" prefHeight="37.0" prefWidth="280.0" progress="0.0" style="-fx-accent: green;" />
+                  <Text layoutX="1301.0" layoutY="632.0" strokeType="OUTSIDE" strokeWidth="0.0" text="KALORIE:">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Text>
+                  <ProgressBar fx:id="waterPb" layoutX="1216.0" layoutY="813.0" prefHeight="37.0" prefWidth="280.0" progress="0.0" style="-fx-accent: blue;" />
+                  <Text layoutX="1262.0" layoutY="791.0" strokeType="OUTSIDE" strokeWidth="0.0" text="NAWODNIENIE:">
+                     <font>
+                        <Font name="System Bold" size="25.0" />
+                     </font>
+                  </Text>
+                  <ImageView fx:id="breakfastEdit" fitHeight="52.0" fitWidth="46.0" layoutX="487.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@edit.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="breakfastDelete" fitHeight="52.0" fitWidth="46.0" layoutX="487.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@delete.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="snacksEdit" fitHeight="52.0" fitWidth="46.0" layoutX="487.0" layoutY="711.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@edit.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="snacksDelete" fitHeight="52.0" fitWidth="46.0" layoutX="487.0" layoutY="790.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@delete.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="dinnerEdit" fitHeight="52.0" fitWidth="46.0" layoutX="1023.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@edit.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="dinnerDelete" fitHeight="52.0" fitWidth="46.0" layoutX="1023.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@delete.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="waterDelete" fitHeight="52.0" fitWidth="46.0" layoutX="1023.0" layoutY="711.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@delete.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="supperEdit" fitHeight="52.0" fitWidth="46.0" layoutX="1539.0" layoutY="279.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@edit.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="supperDelete" fitHeight="52.0" fitWidth="46.0" layoutX="1539.0" layoutY="358.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@delete.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="breakfastAdd" fitHeight="52.0" fitWidth="46.0" layoutX="487.0" layoutY="210.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@add.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="snacksAdd" fitHeight="52.0" fitWidth="46.0" layoutX="487.0" layoutY="646.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@add.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="dinnerAdd" fitHeight="52.0" fitWidth="46.0" layoutX="1023.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@add.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="waterAdd" fitHeight="52.0" fitWidth="46.0" layoutX="1023.0" layoutY="639.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@add.png" />
+                     </image>
+                  </ImageView>
+                  <ImageView fx:id="supperAdd" fitHeight="52.0" fitWidth="46.0" layoutX="1539.0" layoutY="203.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@add.png" />
+                     </image>
+                  </ImageView>
+                  <Text fx:id="calorieText" layoutX="1345.0" layoutY="716.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                  <Text fx:id="waterText" layoutX="1345.0" layoutY="882.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+                  <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="1608.0" layoutY="36.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@back.png" />
+                     </image>
+                  </ImageView>
+               </children>
+            </AnchorPane>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="bmiCalculatorPanel" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <TextField fx:id="heightInput" focusTraversable="false" layoutX="150.0" layoutY="312.0" prefHeight="39.0" prefWidth="341.0" promptText="Wzrost (w centymetach)" stylesheets="@style.css" />
+            <Button fx:id="logInButton" layoutX="150.0" layoutY="462.0" mnemonicParsing="false" onMouseClicked="#calculate" prefHeight="31.0" prefWidth="341.0" styleClass="sign-in_btn" stylesheets="@style.css" text="Oblicz" />
+            <Text layoutX="168.0" layoutY="280.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Kalkulator BMI" textAlignment="CENTER" wrappingWidth="305.85888671875" />
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="266.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <Text fx:id="resultText" layoutX="86.0" layoutY="544.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="477.9999999999998">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <TextField fx:id="weightInput" focusTraversable="false" layoutX="150.0" layoutY="367.0" prefHeight="39.0" prefWidth="341.0" promptText="Waga w kilogramach" stylesheets="@style.css" />
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="553.0" layoutY="23.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" style="-fx-background-color: white;" visible="false">
+         <children>
+            <DatePicker editable="false" layoutX="168.0" layoutY="389.0" prefHeight="29.0" prefWidth="306.0" />
+            <Text layoutX="243.0" layoutY="364.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wybierz datę" textAlignment="CENTER" wrappingWidth="155.13671875">
+               <font>
+                  <Font name="System Bold" size="24.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="266.0" layoutY="111.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <Button layoutX="295.0" layoutY="502.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="52.0" text="Dalej" />
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="558.0" layoutY="24.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="recepiesPanel" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <Button fx:id="findRecipes" layoutX="150.0" layoutY="503.0" mnemonicParsing="false" onMouseClicked="#findRecipes" prefHeight="31.0" prefWidth="341.0" styleClass="sign-in_btn" stylesheets="@style.css" text="Szukaj" />
+            <Text layoutX="168.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Baza przepisów" textAlignment="CENTER" wrappingWidth="305.85888671875" />
+            <Text fx:id="resultText1" layoutX="224.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="266.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <ChoiceBox fx:id="recipiesList" layoutX="208.0" layoutY="408.0" prefHeight="25.0" prefWidth="226.0" />
+            <Text layoutX="273.0" layoutY="397.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wybierz kategorie" />
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="546.0" layoutY="32.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="recepiesPanel2" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="267.0" layoutY="58.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <ListView fx:id="listOfRecipes" layoutX="6.0" layoutY="257.0" prefHeight="451.0" prefWidth="629.0" stylesheets="@listViewStyle.css" />
+            <Label layoutX="177.0" layoutY="228.0" text="Kliknij dwukrotnie na przepis, aby wyświetlić szczegóły">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font>
+            </Label>
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="554.0" layoutY="20.0" onMouseClicked="#goBackToRecipiesPanel" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="recepieDetails" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <ImageView fitHeight="67.0" fitWidth="71.0" layoutX="289.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="32.0" layoutY="131.0" prefHeight="23.0" prefWidth="59.0" text="Nazwa:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Text fx:id="recipeName" layoutX="86.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="532.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Label layoutX="32.0" layoutY="162.0" prefHeight="23.0" prefWidth="96.0" text="Składniki:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ListView fx:id="lvOfIngredients" layoutX="33.0" layoutY="185.0" prefHeight="220.0" prefWidth="356.0" />
+            <Label layoutX="32.0" layoutY="406.0" prefHeight="23.0" prefWidth="179.0" text="Sposób przygotowania:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="32.0" layoutY="637.0" prefHeight="23.0" prefWidth="59.0" text="Kcal:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Text fx:id="kcalValue" layoutX="69.0" layoutY="654.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="532.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Label layoutX="32.0" layoutY="660.0" prefHeight="23.0" prefWidth="109.0" text="Waga całości:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Text fx:id="weightValue" layoutX="126.0" layoutY="677.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="388.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <TextArea fx:id="preparation" editable="false" layoutX="32.0" layoutY="429.0" prefHeight="200.0" prefWidth="565.0" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+            <Text fx:id="epep" layoutX="429.0" layoutY="355.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wyślij szczegóły na adres e-mail" />
+            <Button fx:id="sendMailButton" layoutX="468.0" layoutY="273.0" mnemonicParsing="false" style="-fx-background-color: F8FAFC;">
+               <graphic>
+                  <ImageView fx:id="mailIcon" fitHeight="54.0" fitWidth="77.0" pickOnBounds="true" preserveRatio="true">
+                     <image>
+                        <Image url="@send_mail_icon.png" />
+                     </image>
+                  </ImageView>
+               </graphic>
+            </Button>
+            <AnchorPane fx:id="informationPanel" layoutX="20.0" layoutY="163.0" prefHeight="391.0" prefWidth="589.0" style="-fx-background-color: F8FAFC;" visible="false">
+               <children>
+                  <Text layoutX="69.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wysłano szczegóły przepisu na adres mailowy!" textAlignment="CENTER">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="240.0" layoutY="245.0" mnemonicParsing="false" onMouseClicked="#closeInformationPanel" prefHeight="31.0" prefWidth="109.0" text="Zamknij" />
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="heartIcon" fitHeight="36.0" fitWidth="40.0" layoutX="496.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fx:id="numberOfFav" layoutX="548.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="558.0" layoutY="22.0" onMouseClicked="#goBackToRecipiesPanel2" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addToCalendarPanel" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <Button fx:id="addToCalendarBtn" layoutX="150.0" layoutY="463.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="341.0" styleClass="sign-in_btn" stylesheets="@style.css" text="Dodaj" />
+            <Text layoutX="168.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Dodaj do kalendarza" textAlignment="CENTER" wrappingWidth="305.85888671875" />
+            <Text fx:id="resultText11" layoutX="224.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="266.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <ChoiceBox fx:id="calendarChoice" layoutX="246.0" layoutY="382.0" prefWidth="150.0" />
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="561.0" layoutY="24.0" onMouseClicked="#goBackToCalendar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="userDetailsPanel" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="266.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="259.0" layoutY="365.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Cel kaloryczny:" wrappingWidth="124.0">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <TextField fx:id="calorieGoal" layoutX="236.0" layoutY="392.0" prefHeight="31.0" prefWidth="170.0" />
+            <Button fx:id="detailsButton" layoutX="223.0" layoutY="541.0" mnemonicParsing="false" onMouseClicked="#updateUserDeatils" prefHeight="46.0" prefWidth="196.0" text="Zapisz i zamknij" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="calendarPanel" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <Button fx:id="openCalendarOptions" layoutX="150.0" layoutY="503.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="341.0" styleClass="sign-in_btn" stylesheets="@style.css" text="Szukaj" />
+            <Text layoutX="168.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Kalendarz" textAlignment="CENTER" wrappingWidth="305.85888671875" />
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="266.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <Text layoutX="283.0" layoutY="389.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wybierz datę" />
+            <DatePicker fx:id="datePicker" layoutX="187.0" layoutY="414.0" prefHeight="25.0" prefWidth="264.0" />
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="555.0" layoutY="33.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addToCalendarOwn" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <Button fx:id="addOwnRecipe" layoutX="151.0" layoutY="517.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="341.0" styleClass="sign-in_btn" stylesheets="@style.css" text="Dodaj" />
+            <Text layoutX="168.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Dodaj do kalendarza" textAlignment="CENTER" wrappingWidth="305.85888671875" />
+            <Text fx:id="resultText111" layoutX="224.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="266.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="nameOwnRecipe" layoutX="246.0" layoutY="334.0" />
+            <TextField fx:id="kcalOwnRecpie" layoutX="247.0" layoutY="389.0" />
+            <Text layoutX="198.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa:" wrappingWidth="52.0" />
+            <Text layoutX="214.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kcal:" wrappingWidth="52.0" />
+            <TextField fx:id="WeightOwnRecipe" layoutX="247.0" layoutY="436.0" />
+            <Text layoutX="198.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waga:" wrappingWidth="52.0" />
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="550.0" layoutY="37.0" onMouseClicked="#goBackToAddOptions" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="editMealPanel" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <Button fx:id="editRecipe" layoutX="151.0" layoutY="517.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="341.0" styleClass="sign-in_btn" stylesheets="@style.css" text="Edytuj" />
+            <Text layoutX="168.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Edytuj danie" textAlignment="CENTER" wrappingWidth="305.85888671875" />
+            <Text fx:id="resultText1111" layoutX="224.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="266.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="editedName" layoutX="246.0" layoutY="334.0" />
+            <TextField fx:id="editedKcal" layoutX="247.0" layoutY="389.0" />
+            <Text layoutX="198.0" layoutY="351.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa:" wrappingWidth="52.0" />
+            <Text layoutX="214.0" layoutY="406.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kcal:" wrappingWidth="52.0" />
+            <TextField fx:id="editedWeight" layoutX="247.0" layoutY="436.0" />
+            <Text layoutX="198.0" layoutY="453.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Waga:" wrappingWidth="52.0" />
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="561.0" layoutY="20.0" onMouseClicked="#goBackToCalendar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addWaterPanel" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <Button fx:id="addWater" layoutX="150.0" layoutY="474.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="341.0" styleClass="sign-in_btn" stylesheets="@style.css" text="Dodaj" />
+            <Text layoutX="168.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Dodaj wodę" textAlignment="CENTER" wrappingWidth="305.85888671875" />
+            <Text fx:id="resultText11111" layoutX="224.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="266.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="waterAmount" layoutX="270.0" layoutY="385.0" />
+            <Text layoutX="214.0" layoutY="402.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość (ml):" wrappingWidth="52.0" />
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="548.0" layoutY="22.0" onMouseClicked="#goBackToCalendar" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="addToCalendarFromFav" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <Button fx:id="addFavRecipe" layoutX="151.0" layoutY="517.0" mnemonicParsing="false" prefHeight="31.0" prefWidth="341.0" styleClass="sign-in_btn" stylesheets="@style.css" text="Dodaj" />
+            <Text layoutX="168.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Dodaj do kalendarza" textAlignment="CENTER" wrappingWidth="305.85888671875" />
+            <Text fx:id="resultText1112" layoutX="224.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="266.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="550.0" layoutY="37.0" onMouseClicked="#goBackToAddOptions" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+            <ChoiceBox fx:id="selectedFavRecipe" layoutX="206.0" layoutY="359.0" prefHeight="25.0" prefWidth="232.0" />
+            <Text layoutX="139.0" layoutY="376.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Przepis:" />
+            <ChoiceBox fx:id="numberOfServings" layoutX="247.0" layoutY="426.0" prefWidth="150.0" />
+            <Text layoutX="139.0" layoutY="443.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość:" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="recipiesPanelMenu" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <Text layoutX="168.0" layoutY="297.0" strokeType="OUTSIDE" strokeWidth="0.0" styleClass="title" text="Baza przepisów" textAlignment="CENTER" wrappingWidth="305.85888671875" />
+            <Text fx:id="resultText12" layoutX="224.0" layoutY="592.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER">
+               <font>
+                  <Font name="System Bold" size="17.0" />
+               </font>
+            </Text>
+            <ImageView fitHeight="121.0" fitWidth="109.0" layoutX="266.0" layoutY="75.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="546.0" layoutY="32.0" onMouseClicked="#goBack" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="addRecipeBtn" layoutX="135.0" layoutY="533.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="372.0" styleClass="sign-in_btn" stylesheets="@style.css" text="Dodaj przepis do bazy" />
+            <Button fx:id="findRecipiesBtn" layoutX="135.0" layoutY="419.0" mnemonicParsing="false" prefHeight="52.0" prefWidth="372.0" styleClass="sign-in_btn" stylesheets="@style.css" text="Wyszukaj przepisy" />
+         </children>
+      </AnchorPane>
+      <AnchorPane fx:id="recipeToDBPanel" layoutX="643.0" layoutY="203.0" prefHeight="717.0" prefWidth="641.0" styleClass="form-container" stylesheets="@style.css" visible="false">
+         <children>
+            <ImageView fitHeight="67.0" fitWidth="71.0" layoutX="289.0" layoutY="39.0" pickOnBounds="true" preserveRatio="true" styleClass="logo-container">
+               <image>
+                  <Image url="@ikona.png" />
+               </image>
+            </ImageView>
+            <Label layoutX="32.0" layoutY="131.0" prefHeight="23.0" prefWidth="59.0" text="Nazwa:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Text fx:id="recipeName1" layoutX="86.0" layoutY="148.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="532.13671875">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </Text>
+            <Label layoutX="32.0" layoutY="162.0" prefHeight="23.0" prefWidth="96.0" text="Składniki:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ListView fx:id="lvOfIngredientsToAdd" layoutX="33.0" layoutY="185.0" prefHeight="220.0" prefWidth="356.0" />
+            <Label layoutX="32.0" layoutY="406.0" prefHeight="23.0" prefWidth="179.0" text="Sposób przygotowania:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="27.0" layoutY="657.0" prefHeight="23.0" prefWidth="59.0" text="Kcal:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <Label layoutX="189.0" layoutY="656.0" prefHeight="23.0" prefWidth="109.0" text="Waga całości:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <TextArea fx:id="preparationToAdd" layoutX="32.0" layoutY="429.0" prefHeight="200.0" prefWidth="565.0" wrapText="true">
+               <font>
+                  <Font size="14.0" />
+               </font>
+            </TextArea>
+            <AnchorPane fx:id="informationPanel1" layoutX="20.0" layoutY="163.0" prefHeight="391.0" prefWidth="589.0" style="-fx-background-color: F8FAFC;" visible="false">
+               <children>
+                  <Text layoutX="69.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Wysłano szczegóły przepisu na adres mailowy!" textAlignment="CENTER">
+                     <font>
+                        <Font size="22.0" />
+                     </font>
+                  </Text>
+                  <Button layoutX="240.0" layoutY="245.0" mnemonicParsing="false" onMouseClicked="#closeInformationPanel" prefHeight="31.0" prefWidth="109.0" text="Zamknij" />
+               </children>
+            </AnchorPane>
+            <ImageView fx:id="heartIcon1" fitHeight="36.0" fitWidth="40.0" layoutX="496.0" layoutY="125.0" pickOnBounds="true" preserveRatio="true" />
+            <Text fx:id="numberOfFav1" layoutX="548.0" layoutY="147.0" strokeType="OUTSIDE" strokeWidth="0.0" />
+            <ImageView fitHeight="62.0" fitWidth="52.0" layoutX="558.0" layoutY="22.0" onMouseClicked="#goBackToRecipiesBase" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@back.png" />
+               </image>
+            </ImageView>
+            <TextField fx:id="nameToAdd" layoutX="94.0" layoutY="129.0" />
+            <TextField fx:id="kcalToAdd" layoutX="72.0" layoutY="658.0" prefHeight="13.0" prefWidth="99.0" />
+            <TextField fx:id="weightToAdd" layoutX="290.0" layoutY="656.0" prefHeight="13.0" prefWidth="99.0" />
+            <Text layoutX="495.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Ilość:" wrappingWidth="44.25">
+               <font>
+                  <Font name="System Bold" size="12.0" />
+               </font></Text>
+            <TextField fx:id="quantityOfIngredient" layoutX="442.0" layoutY="216.0" promptText="np. szczypta, 2g, 4" />
+            <Text layoutX="492.0" layoutY="273.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Nazwa:" wrappingWidth="44.25" />
+            <TextField fx:id="ingredientName" layoutX="442.0" layoutY="283.0" />
+            <ImageView fx:id="addIngredient" fitHeight="39.0" fitWidth="46.0" layoutX="457.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@add.png" />
+               </image>
+            </ImageView>
+            <ImageView fx:id="deleteIngredient" fitHeight="39.0" fitWidth="46.0" layoutX="539.0" layoutY="339.0" pickOnBounds="true" preserveRatio="true">
+               <image>
+                  <Image url="@delete.png" />
+               </image>
+            </ImageView>
+            <Button fx:id="addRecipeToDB" layoutX="480.0" layoutY="657.0" mnemonicParsing="false" prefHeight="25.0" prefWidth="124.0" styleClass="sign-in_btn" stylesheets="@style.css" text="Dodaj przepis" />
+            <Label layoutX="321.0" layoutY="130.0" prefHeight="23.0" prefWidth="79.0" text="Kategoria:">
+               <font>
+                  <Font name="System Bold" size="14.0" />
+               </font>
+            </Label>
+            <ChoiceBox fx:id="categoryToAdd" layoutX="402.0" layoutY="129.0" prefWidth="150.0" />
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>

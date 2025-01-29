@@ -1,0 +1,22 @@
+.button {
+    -fx-padding: 10 20; /* Padding: 10px góra-dół, 20px lewo-prawo */
+    -fx-font-size: 1.1rem; /* Rozmiar czcionki */
+    -fx-background-color: rgb(89, 182, 35); /* Kolor tła */
+    -fx-text-fill: white; /* Kolor tekstu */
+    -fx-min-width: 120px; /* Minimalna szerokość */
+    -fx-min-height: 45px; /* Minimalna wysokość */
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.2), 5, 0.0, 0, 1); /* Cień */
+    -fx-transition: background-color 0.2s ease-in, all 0.15s ease-in; /* Przejrzystość */
+}
+
+/* Efekt hover */
+.button:hover {
+    -fx-background-color: rgb(53, 144, 0); /* Zmiana koloru tła */
+    -fx-translate-x: 5px; /* Przesunięcie */
+    -fx-translate-y: 5px; /* Przesunięcie */
+}
+
+/* Styl dla aktywnego stanu */
+.button:pressed {
+    -fx-background-color: rgb(232, 255, 219); /* Kolor tła podczas kliknięcia */
+}

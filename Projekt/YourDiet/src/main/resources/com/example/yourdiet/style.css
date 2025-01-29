@@ -1,0 +1,60 @@
+.form-container {
+
+    -fx-background-color: #ffffff;
+    -fx-background-radius: 11px;
+    -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.1), 15, 0, 0, 0);
+    -fx-font-family: "Inter", sans-serif;
+}
+.title {
+    -fx-margin: 0; /* JavaFX nie obsługuje bezpośrednio margin, ale VBox/HBox może dodać marginesy */
+    -fx-font-size: 20px; /* Odpowiednik 1.25rem (rem = 16px) */
+    -fx-font-weight: bold; /* Odpowiednik font-weight: 700 */
+    -fx-text-fill: #212121; /* Kolor tekstu */
+}
+
+.logo-container {
+    -fx-pref-width: 80px; /* Szerokość kontenera */
+    -fx-pref-height: 80px; /* Wysokość kontenera */
+    -fx-background-color: linear-gradient(180deg, rgba(248, 248, 248, 0) 50%, #F8F8F888 100%); /* Gradient tła */
+    -fx-border-color: #F7F7F8; /* Kolor obramowania */
+    -fx-border-width: 1px; /* Grubość obramowania */
+    -fx-effect: dropshadow(gaussian, rgba(239, 239, 239, 0.5), 0.5, 0, 0, 0.5), dropshadow(gaussian, #EFEFEF, 0.5, 0, 0, 0.5); /* Efekty cienia */
+    -fx-background-radius: 11px; /* Zaokrąglenie rogów */
+}
+
+
+.input_label {
+  fx-font-size: 0.75rem;
+  fx-color: "#8B8E98";
+  fx-font-weight: 600;
+}
+.input-field {
+    -fx-pref-height: 40px; /* Wysokość pola tekstowego */
+    -fx-padding: 0 0 0 40px; /* Wewnętrzne odstępy (padding) */
+    -fx-background-radius: 7px; /* Zaokrąglone rogi */
+    -fx-border-radius: 7px; /* Zaokrąglenie obramowania */
+    -fx-border-color: #e5e5e5; /* Kolor obramowania */
+    -fx-border-width: 1px; /* Grubość obramowania */
+    -fx-effect: dropshadow(gaussian, rgba(239, 239, 239, 0.5), 1, 0, 0, 1); /* Cień */
+    -fx-focus-color: transparent; /* Brak zmiany koloru przy focus */
+    -fx-faint-focus-color: transparent; /* Wyłączenie domyślnego efektu focus */
+    -fx-transition: all 0.3s cubic-bezier(0.15, 0.83, 0.66, 1); /* Efekt przejścia */
+}
+.input-field:focused {
+    -fx-border-color: transparent; /* Obramowanie transparentne */
+    -fx-border-width: 1px; /* Szerokość obramowania */
+    -fx-effect: dropshadow(gaussian, #242424, 2, 0, 0, 0); /* Efekt cienia (box-shadow) */
+    -fx-background-color: transparent; /* Przezroczyste tło */
+}
+.sign-in_btn {
+  -fx-background-color: "#2DDE42";
+  -fx-border-radius: 100;
+  -fx-color: #ffffff;
+}
+
+.log-in_btn {
+  -fx-background-color: "#ababab";
+  -fx-border-radius: 100;
+  -fx-color: #ffffff;
+}
+

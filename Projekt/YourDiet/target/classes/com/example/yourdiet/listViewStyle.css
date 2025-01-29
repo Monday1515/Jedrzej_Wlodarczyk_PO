@@ -1,0 +1,23 @@
+.list-view {
+    -fx-background-color: #f0f0f0;      /* Kolor tła ListView */
+    -fx-border-color: #333333;          /* Kolor obramowania ListView */
+    -fx-border-width: 2px;
+    -fx-padding: 5px;
+}
+
+/* Stylizacja elementów (komórek) ListView */
+.list-cell {
+    -fx-background-color: #ffffff;      /* Kolor tła komórek */
+    -fx-text-fill: #333333;             /* Kolor tekstu */
+    -fx-font-size: 28px;                /* Rozmiar czcionki */
+    -fx-padding: 8px;
+}
+
+.list-cell:hover {
+    -fx-background-color: #cce7ff;      /* Kolor tła po najechaniu */
+}
+
+.list-cell:selected {
+    -fx-background-color: #4a90e2;      /* Kolor tła wybranego elementu */
+    -fx-text-fill: #ffffff;             /* Kolor tekstu wybranego elementu */
+}
